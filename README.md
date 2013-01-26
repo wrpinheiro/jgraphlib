@@ -1,3 +1,5 @@
+<h1>GraphLib</h1>
+
 Welcome to jGraphLib!!
 
 jGraphLib is a small library to work with Direct Acyclic Graphs. It provides
@@ -8,7 +10,7 @@ provides an implementation.
 
 TODO: write a getting started page.
 
-- Compilation
+<h1>Compilation</h1>
 
 Just go to the root directory of the project and run:
 
@@ -16,7 +18,7 @@ Just go to the root directory of the project and run:
 
 This project only depends on JUnit.
 
-- Legal
+<h1>Legal</h1>
 
 Please read the file NOTICE included in the root directory of this project.
 
