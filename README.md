@@ -14,7 +14,9 @@ TODO: write a getting started page.
 
 Just go to the root directory of the project and run:
 
+<blockquote>
   mvn package
+</blockquote>
 
 This project only depends on JUnit.
 
