@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Wellington Ricardo Pinheiro.
+ * Copyright 2006-2013 Wellington Ricardo Pinheiro.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,9 +22,7 @@ import java.util.Set;
 
 import br.com.wrpinheiro.jgraphlib.set.SetMaintainer;
 
-
-
-public class ArrayFamilySet<T> extends AbstractFamilySet<T> {
+public class ArrayFamilySet<T> implements FamilySet<T> {
 	/**
 	 * The initial size of this familySet.
 	 */
@@ -50,8 +48,11 @@ public class ArrayFamilySet<T> extends AbstractFamilySet<T> {
 	 */
 	public ArrayFamilySet(SetMaintainer<T>... sets) {
 		this();
-		for (SetMaintainer<T> sm : sets) {
-			this.add(sm);
+		
+		if (sets != null) {
+			for (SetMaintainer<T> sm : sets) {
+				this.add(sm);
+			}
 		}
 	}
 
@@ -70,19 +71,22 @@ public class ArrayFamilySet<T> extends AbstractFamilySet<T> {
 	}
 
 	/**
-	 * Return the list of sets maintained by this FamilySet.
+	 * Return the list of sets maintained by this FamilySet. The family set
+	 * will never be null so, we don't need to check that in this method.
 	 * 
-	 * @return list of sets.
+	 * @return array of sets.
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public SetMaintainer<T>[] getFamilySet() {
-		if (this.familySet == null)
-			return null;
-
 		SetMaintainer<T>[] newFamilySet = (SetMaintainer<T>[]) new SetMaintainer<?>[this.size()];
 		for (int i = 0; i < this.size(); i++) {
-			newFamilySet[i] = this.familySet.get(i).clone();
+			SetMaintainer<T> set = this.familySet.get(i);
+			if (set != null) {
+				newFamilySet[i] = set.clone();
+			} else {
+				newFamilySet[i] = null;
+			}
 		}
 		return newFamilySet;
 	}
@@ -147,14 +151,17 @@ public class ArrayFamilySet<T> extends AbstractFamilySet<T> {
 	 * 
 	 * @see br.com.wrpinheiro.jgraphlib.hittingset.AbstractFamilySet#getFamilySetAsSet()
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public Set<T[]> getFamilySetAsSet() {
 		Set<T[]> newSet = new LinkedHashSet<T[]>();
 		SetMaintainer<T>[] sm = this.getFamilySet();
 
 		for (SetMaintainer<T> s : sm) {
-			@SuppressWarnings("unchecked")
-			T[] temp = (T[]) s.toArray(new Integer[0]);
+			T[] temp = null;
+			if (s != null) {
+			    temp = (T[]) s.toArray(new Integer[0]);
+			}
 			newSet.add(temp);
 		}
 
@@ -173,4 +180,48 @@ public class ArrayFamilySet<T> extends AbstractFamilySet<T> {
 		}
 		return null;
 	}
+
+  /**
+   * (non-Javadoc).
+   * 
+   * @see java.lang.Object#toString()
+   */
+  @Override
+  public String toString() {
+    SetMaintainer<T>[] sets = getFamilySet();
+
+    StringBuilder sb = new StringBuilder();
+    sb.append('{');
+    for (SetMaintainer<T> s : sets) {
+      sb.append(s).append(' ');
+    }
+
+    sb.append('}');
+
+    return sb.toString();
+  }
+
+  /**
+   * (non-Javadoc).
+   * 
+   * @see java.lang.Object#equals(java.lang.Object)
+   */
+  @Override
+  public boolean equals(Object obj) {
+    if (!(obj instanceof ArrayFamilySet<?>))
+      return false;
+
+    ArrayFamilySet<?> other = (ArrayFamilySet<?>) obj;
+    if (other.size() != this.size())
+      return false;
+
+    SetMaintainer<?>[] s1 = other.getFamilySet();
+
+    for (SetMaintainer<?> s : s1) {
+      if (!this.contains(s))
+        return false;
+    }
+
+    return true;
+  }
 }

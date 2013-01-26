@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Wellington Ricardo Pinheiro.
+ * Copyright 2006-2013 Wellington Ricardo Pinheiro.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,7 +46,7 @@ public class MinimalHittingSetTest {
 		}
 	}
 
-	// @Test
+	@Test
 	public void testMinimalHittingSet() {
 		MinimalHittingSet<Integer> mhs = new MinimalHittingSet<Integer>();
 

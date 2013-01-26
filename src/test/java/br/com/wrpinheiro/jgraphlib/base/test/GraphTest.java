@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Wellington Ricardo Pinheiro.
+ * Copyright 2006-2013 Wellington Ricardo Pinheiro.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,16 +22,17 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 import br.com.wrpinheiro.jgraphlib.Arc;
 import br.com.wrpinheiro.jgraphlib.Graph;
 import br.com.wrpinheiro.jgraphlib.Vertex;
 
-
 /**
- * @author wrp 26/01/2008
- * 
+ * @author wrp
  */
 public class GraphTest {
 
@@ -44,17 +45,18 @@ public class GraphTest {
 		assertNotNull(g);
 	}
 
-	@SuppressWarnings("unchecked")
+	@Test
 	public void testGetVertex() {
+	  final int MAX_VERTICES = 5;
 		Graph<Integer> g = new Graph<Integer>();
 
-		Vertex<Integer>[] vertices = new Vertex[5];
-		for (int i = 0; i < vertices.length; i++) {
-			vertices[i] = new Vertex<Integer>(g);
+		List<Vertex<Integer>> vertices = new ArrayList<Vertex<Integer>>();
+		for (int i = 0; i < MAX_VERTICES; i++) {
+			vertices.add(new Vertex<Integer>(g));
 		}
 
-		for (int i = 0; i < vertices.length; i++) {
-			assertEquals(vertices[i], g.getVertex(i));
+		for (int i = 0; i < MAX_VERTICES; i++) {
+			assertEquals(vertices.get(i), g.getVertex(i));
 		}
 
 		try {

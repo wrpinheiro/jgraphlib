@@ -22,7 +22,7 @@
 	<groupId>br.com.wrpinheiro.jGraphLib</groupId>
 	<artifactId>jGraphLib</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0</version>
+	<version>1.0.1</version>
 
 	<name>jGraphLib</name>
 

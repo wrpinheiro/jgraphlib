@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Wellington Ricardo Pinheiro.
+ * Copyright 2006-2013 Wellington Ricardo Pinheiro.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 import br.com.wrpinheiro.jgraphlib.base.test.GraphTest;
-import br.com.wrpinheiro.jgraphlib.hittingset.test.FamilySetTest;
+import br.com.wrpinheiro.jgraphlib.hittingset.test.ArrayFamilySetTest;
 import br.com.wrpinheiro.jgraphlib.hittingset.test.MinimalHittingSetTest;
 import br.com.wrpinheiro.jgraphlib.hittingset.test.SetMaintainerTest;
 import br.com.wrpinheiro.jgraphlib.search.test.BreadthFirstSearchTest;
@@ -27,7 +27,7 @@ import br.com.wrpinheiro.jgraphlib.search.test.BreadthFirstSearchTest;
 @Suite.SuiteClasses({
         GraphTest.class,
         SetMaintainerTest.class,
-        FamilySetTest.class,
+        ArrayFamilySetTest.class,
         MinimalHittingSetTest.class,
         BreadthFirstSearchTest.class
         })
