@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.com.wrpinheiro.jid.jgraphlib.hittingset;
+package br.com.wrpinheiro.jgraphlib.hittingset;
 
 import java.util.Set;
 
-import br.com.wrpinheiro.jid.jgraphlib.set.SetMaintainer;
+import br.com.wrpinheiro.jgraphlib.set.SetMaintainer;
 
 
 

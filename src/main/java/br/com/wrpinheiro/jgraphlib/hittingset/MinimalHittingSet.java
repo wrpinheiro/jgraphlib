@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.com.wrpinheiro.jid.jgraphlib.hittingset;
+package br.com.wrpinheiro.jgraphlib.hittingset;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -22,10 +22,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-import br.com.wrpinheiro.jid.jgraphlib.Arc;
-import br.com.wrpinheiro.jid.jgraphlib.Graph;
-import br.com.wrpinheiro.jid.jgraphlib.Vertex;
-import br.com.wrpinheiro.jid.jgraphlib.set.SetMaintainer;
+import br.com.wrpinheiro.jgraphlib.Arc;
+import br.com.wrpinheiro.jgraphlib.Graph;
+import br.com.wrpinheiro.jgraphlib.Vertex;
+import br.com.wrpinheiro.jgraphlib.set.SetMaintainer;
 
 
 

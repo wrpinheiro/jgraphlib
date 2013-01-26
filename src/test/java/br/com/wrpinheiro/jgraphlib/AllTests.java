@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.com.wrpinheiro.jid.jgraphlib;
+package br.com.wrpinheiro.jgraphlib;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
-import br.com.wrpinheiro.jid.jgraphlib.base.test.GraphTest;
-import br.com.wrpinheiro.jid.jgraphlib.hittingset.test.FamilySetTest;
-import br.com.wrpinheiro.jid.jgraphlib.hittingset.test.MinimalHittingSetTest;
-import br.com.wrpinheiro.jid.jgraphlib.hittingset.test.SetMaintainerTest;
-import br.com.wrpinheiro.jid.jgraphlib.search.test.BreadthFirstSearchTest;
+import br.com.wrpinheiro.jgraphlib.base.test.GraphTest;
+import br.com.wrpinheiro.jgraphlib.hittingset.test.FamilySetTest;
+import br.com.wrpinheiro.jgraphlib.hittingset.test.MinimalHittingSetTest;
+import br.com.wrpinheiro.jgraphlib.hittingset.test.SetMaintainerTest;
+import br.com.wrpinheiro.jgraphlib.search.test.BreadthFirstSearchTest;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({

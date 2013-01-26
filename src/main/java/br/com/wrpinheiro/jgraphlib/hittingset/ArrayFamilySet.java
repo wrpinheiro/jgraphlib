@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.com.wrpinheiro.jid.jgraphlib.hittingset;
+package br.com.wrpinheiro.jgraphlib.hittingset;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import br.com.wrpinheiro.jid.jgraphlib.set.SetMaintainer;
+import br.com.wrpinheiro.jgraphlib.set.SetMaintainer;
 
 
 
@@ -145,7 +145,7 @@ public class ArrayFamilySet<T> extends AbstractFamilySet<T> {
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see br.com.wrpinheiro.jid.jgraphlib.hittingset.AbstractFamilySet#getFamilySetAsSet()
+	 * @see br.com.wrpinheiro.jgraphlib.hittingset.AbstractFamilySet#getFamilySetAsSet()
 	 */
 	@Override
 	public Set<T[]> getFamilySetAsSet() {
@@ -163,7 +163,7 @@ public class ArrayFamilySet<T> extends AbstractFamilySet<T> {
 
 	/**
 	 * (non-Javadoc)
-	 * @see br.com.wrpinheiro.jid.jgraphlib.hittingset.FamilySet#getEqual(br.com.wrpinheiro.jid.jgraphlib.set.SetMaintainer)
+	 * @see br.com.wrpinheiro.jgraphlib.hittingset.FamilySet#getEqual(br.com.wrpinheiro.jgraphlib.set.SetMaintainer)
 	 */
 	@Override
 	public SetMaintainer<T> getEqual(final SetMaintainer<T> otherSet) {

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.com.wrpinheiro.jid.jgraphlib.search;
+package br.com.wrpinheiro.jgraphlib.search;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,8 +21,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-import br.com.wrpinheiro.jid.jgraphlib.Graph;
-import br.com.wrpinheiro.jid.jgraphlib.Vertex;
+import br.com.wrpinheiro.jgraphlib.Graph;
+import br.com.wrpinheiro.jgraphlib.Vertex;
 
 
 

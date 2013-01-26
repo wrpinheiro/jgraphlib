@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.com.wrpinheiro.jid.jgraphlib.hittingset;
+package br.com.wrpinheiro.jgraphlib.hittingset;
 
 import java.util.Set;
 
-import br.com.wrpinheiro.jid.jgraphlib.set.SetMaintainer;
+import br.com.wrpinheiro.jgraphlib.set.SetMaintainer;
 
 
 
@@ -31,7 +31,7 @@ public abstract class AbstractFamilySet<T> implements FamilySet<T> {
 	/**
 	 * (non-Javadoc).
 	 * 
-	 * @see br.com.wrpinheiro.jid.jgraphlib.hittingset.FamilySet#add(br.com.wrpinheiro.jid.jgraphlib.set.SetMaintainer)
+	 * @see br.com.wrpinheiro.jgraphlib.hittingset.FamilySet#add(br.com.wrpinheiro.jgraphlib.set.SetMaintainer)
 	 */
 	public void add(SetMaintainer<T> set) {
 		throw new UnsupportedOperationException(
@@ -41,7 +41,7 @@ public abstract class AbstractFamilySet<T> implements FamilySet<T> {
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see br.com.wrpinheiro.jid.jgraphlib.hittingset.FamilySet#contains(br.com.wrpinheiro.jid.jgraphlib.set.SetMaintainer)
+	 * @see br.com.wrpinheiro.jgraphlib.hittingset.FamilySet#contains(br.com.wrpinheiro.jgraphlib.set.SetMaintainer)
 	 */
 	public boolean contains(SetMaintainer<?> set) {
 		throw new UnsupportedOperationException(
@@ -51,7 +51,7 @@ public abstract class AbstractFamilySet<T> implements FamilySet<T> {
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see br.com.wrpinheiro.jid.jgraphlib.hittingset.FamilySet#findEmptyIntersection(br.com.wrpinheiro.jid.jgraphlib.set.SetMaintainer)
+	 * @see br.com.wrpinheiro.jgraphlib.hittingset.FamilySet#findEmptyIntersection(br.com.wrpinheiro.jgraphlib.set.SetMaintainer)
 	 */
 	public SetMaintainer<T> findEmptyIntersection(SetMaintainer<T> otherSet) {
 		throw new UnsupportedOperationException(
@@ -61,7 +61,7 @@ public abstract class AbstractFamilySet<T> implements FamilySet<T> {
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see br.com.wrpinheiro.jid.jgraphlib.hittingset.FamilySet#getFamilySet()
+	 * @see br.com.wrpinheiro.jgraphlib.hittingset.FamilySet#getFamilySet()
 	 */
 	public SetMaintainer<T>[] getFamilySet() {
 		throw new UnsupportedOperationException(
@@ -71,7 +71,7 @@ public abstract class AbstractFamilySet<T> implements FamilySet<T> {
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see br.com.wrpinheiro.jid.jgraphlib.hittingset.FamilySet#getSet(int)
+	 * @see br.com.wrpinheiro.jgraphlib.hittingset.FamilySet#getSet(int)
 	 */
 	public SetMaintainer<T> getSet(int i) {
 		throw new UnsupportedOperationException(
@@ -81,7 +81,7 @@ public abstract class AbstractFamilySet<T> implements FamilySet<T> {
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see br.com.wrpinheiro.jid.jgraphlib.hittingset.FamilySet#size()
+	 * @see br.com.wrpinheiro.jgraphlib.hittingset.FamilySet#size()
 	 */
 	public int size() {
 		return -1;
@@ -90,7 +90,7 @@ public abstract class AbstractFamilySet<T> implements FamilySet<T> {
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see br.com.wrpinheiro.jid.jgraphlib.hittingset.FamilySet#getFamilySetAsSet()
+	 * @see br.com.wrpinheiro.jgraphlib.hittingset.FamilySet#getFamilySetAsSet()
 	 */
 	public Set<T[]> getFamilySetAsSet() {
 		throw new UnsupportedOperationException(
@@ -100,7 +100,7 @@ public abstract class AbstractFamilySet<T> implements FamilySet<T> {
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see br.com.wrpinheiro.jid.jgraphlib.hittingset.FamilySet#getEqual(br.com.wrpinheiro.jid.jgraphlib.set.SetMaintainer)
+	 * @see br.com.wrpinheiro.jgraphlib.hittingset.FamilySet#getEqual(br.com.wrpinheiro.jgraphlib.set.SetMaintainer)
 	 */
 	@Override
 	public SetMaintainer<T> getEqual(final SetMaintainer<T> otherSet) {

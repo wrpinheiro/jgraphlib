@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.com.wrpinheiro.jid.jgraphlib.base.test;
+package br.com.wrpinheiro.jgraphlib.base.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -24,9 +24,9 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import br.com.wrpinheiro.jid.jgraphlib.Arc;
-import br.com.wrpinheiro.jid.jgraphlib.Graph;
-import br.com.wrpinheiro.jid.jgraphlib.Vertex;
+import br.com.wrpinheiro.jgraphlib.Arc;
+import br.com.wrpinheiro.jgraphlib.Graph;
+import br.com.wrpinheiro.jgraphlib.Vertex;
 
 
 /**

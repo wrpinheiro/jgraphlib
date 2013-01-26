@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.com.wrpinheiro.jid.jgraphlib.set;
+package br.com.wrpinheiro.jgraphlib.set;
 
 import java.util.HashSet;
 import java.util.Iterator;
