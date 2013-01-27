@@ -97,6 +97,7 @@ public class ArrayFamilySetTest {
 		SetMaintainer<Integer> s1 = new SetMaintainer<Integer>((Integer)null);
 		SetMaintainer<Integer> s2 = new SetMaintainer<Integer>(4, 5, 6);
 		
+		@SuppressWarnings("unchecked")
 		FamilySet<Integer> f = new ArrayFamilySet<Integer>(s0, s1, s2);
 		SetMaintainer<Integer>[] sets = f.getFamilySet();
 		
@@ -114,6 +115,7 @@ public class ArrayFamilySetTest {
 		Assert.assertArrayEquals(s2.toArray(new Integer[0]), it.next());
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testEquals() {
 		SetMaintainer<Integer> s0 = new SetMaintainer<Integer>(1, 2, 3);

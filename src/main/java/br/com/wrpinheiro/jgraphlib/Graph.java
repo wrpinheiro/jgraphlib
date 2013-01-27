@@ -47,6 +47,11 @@ public class Graph<T> {
 	private int id;
 
 	/**
+	 * A vertex from this graph to be considered as root.
+	 */
+	private Vertex<T> rootVertex;
+
+	/**
 	 * Create a new graph and set its unique id.
 	 */
 	public Graph() {
@@ -72,6 +77,9 @@ public class Graph<T> {
 	 * @return the ith vertex.
 	 */
 	public Vertex<T> getVertex(final int i) {
+		if (i < 0 || i > this.vertices.size() - 1)
+			throw new InvalidVertexException();
+
 		return this.vertices.get(i);
 	}
 
@@ -167,5 +175,25 @@ public class Graph<T> {
 	 */
 	public void removeArcs(HashSet<Arc<T>> arcsRemoved) {
 		this.arcs.removeAll(arcsRemoved);
+	}
+
+	/**
+	 * Set the root vertex.
+	 * @param v a vertex from g.
+	 * @throws InvalidVertexException throwed when trying to set a root
+	 * vertex with a vertex that in not from this graph.
+	 */
+	public void setRoot(Vertex<T> v) {
+		if (v.getGraph().equals(this)) {
+			this.rootVertex = v;
+		} else throw new InvalidVertexException();
+	}
+	
+	/**
+	 * Get the root vertex.
+	 * @return a vertex.
+	 */
+	public Vertex<T> getRoot() {
+		return this.rootVertex;
 	}
 }

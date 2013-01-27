@@ -20,15 +20,17 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import junit.framework.Assert;
 
 import org.junit.Test;
 
 import br.com.wrpinheiro.jgraphlib.Arc;
 import br.com.wrpinheiro.jgraphlib.Graph;
+import br.com.wrpinheiro.jgraphlib.InvalidVertexException;
 import br.com.wrpinheiro.jgraphlib.Vertex;
 
 /**
@@ -58,13 +60,18 @@ public class GraphTest {
 		for (int i = 0; i < MAX_VERTICES; i++) {
 			assertEquals(vertices.get(i), g.getVertex(i));
 		}
-
-		try {
-			g.getVertex(-1);
-			fail("Graph returned vertex indexed by -1");
-		} catch (RuntimeException ex) {
-			// does not need implementation.
-		}
+	}
+	
+	@Test(expected=InvalidVertexException.class)
+	public void testAccessToVertexWithNegativeValue() {
+		Graph<Integer> g = new Graph<Integer>();
+		g.getVertex(-1);
+	}
+	
+	@Test(expected=InvalidVertexException.class)
+	public void testAccessToInvalidVertex() {
+		Graph<Integer> g = new Graph<Integer>();
+		g.getVertex(0);
 	}
 
 	/**
@@ -145,5 +152,45 @@ public class GraphTest {
 		Arc<Integer> arc = new Arc<Integer>(g);
 
 		assertEquals(arc, arc);
+	}
+	
+	@Test
+	public void testRootVertex() {
+		Graph<Integer> g = new Graph<Integer>();
+		Vertex<Integer> v = new Vertex<Integer>(g);
+	
+		g.setRoot(v);
+
+		Assert.assertEquals(true, v.isRoot());
+		Assert.assertEquals(v, g.getRoot());
+	}
+	
+	@Test(expected=InvalidVertexException.class)
+	public void testFailToSetRootVertexFromAnotherGraph() {
+		Graph<Integer> g1 = new Graph<Integer>();
+		Graph<Integer> g2 = new Graph<Integer>();
+		
+		new Vertex<Integer>(g1);
+		Vertex<Integer> v2 = new Vertex<Integer>(g2);
+		
+		g1.setRoot(v2);
+	}
+	
+	@Test
+	public void testSettingANewRoot() {
+		Graph<Integer> g1 = new Graph<Integer>();
+		
+		Vertex<Integer> v1 = new Vertex<Integer>(g1);
+		Vertex<Integer> v2 = new Vertex<Integer>(g1);
+		
+		g1.setRoot(v1);
+		
+		Assert.assertEquals(true, v1.isRoot());
+		
+		g1.setRoot(v2);
+		Assert.assertEquals(false, v1.isRoot());
+		Assert.assertEquals(true, v2.isRoot());
+		Assert.assertEquals(v2, g1.getRoot());
+		
 	}
 }

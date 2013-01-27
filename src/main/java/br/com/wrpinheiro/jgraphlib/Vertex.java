@@ -286,4 +286,12 @@ public class Vertex<T> {
 	public Object getProperty(String key) {
 		return this.property.get(key);
 	}
+
+	/**
+	 * Check if this vertex is a root vertex from its graph.
+	 * @return true if this vertex is root or false otherwise.
+	 */
+	public boolean isRoot() {
+		return this.graph.getRoot().equals(this);
+	}
 }
