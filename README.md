@@ -2,9 +2,9 @@
 
 Welcome to jGraphLib!!
 
-jGraphLib is a small library to work with Direct Acyclic Graphs. It provides
+jGraphLib is a small library to work with Direct Graphs. It provides
 a representation for Graphs, Nodes, Arcs and some methods to transverse the
-Graph. Between the funny things we can do with this library there is one
+Graph. Between the funny things you can do with this library there is one
 algorithm that is really cool: The Minimum Hitting Set, that jGraphLib also
 provides an implementation.
 
