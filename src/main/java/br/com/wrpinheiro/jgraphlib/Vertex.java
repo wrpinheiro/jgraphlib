@@ -23,8 +23,6 @@ import java.util.Map;
 
 import br.com.wrpinheiro.jgraphlib.set.SetMaintainer;
 
-
-
 /**
  * Vertex definition.
  * 
@@ -156,6 +154,17 @@ public class Vertex<T> {
 		this.inArcs.remove(arc);
 		arc.setTarget(null);
 	}
+	
+	/**
+	 * Remove an input arc from this vertex but do not call
+	 * arc.setTarget(null). Used only for internal purposes.
+	 * 
+	 * @param arc
+	 *            the output arc to be removed
+	 */
+	void internalRemoveInArc(Arc<T> arc) {
+		this.inArcs.remove(arc);
+	}
 
 	/**
 	 * Remove an output arc of this vertex.
@@ -166,6 +175,17 @@ public class Vertex<T> {
 	public void removeOutArc(Arc<T> arc) {
 		this.outArcs.remove(arc);
 		arc.setSource(null);
+	}
+
+	/**
+	 * Remove an output arc from this vertex but do not call
+	 * arc.setSource(null). Used only for internal purposes.
+	 * 
+	 * @param arc
+	 *            the output arc to be removed
+	 */
+	void internalRemoveOutArc(Arc<T> arc) {
+		this.outArcs.remove(arc);
 	}
 
 	/**
@@ -197,7 +217,8 @@ public class Vertex<T> {
 	 * Set the id of this vertex. A vertex is identified by a sequential number
 	 * given by the current number of vertex from a graph plus one.
 	 * 
-	 * @param id the id of this vertex.
+	 * @param id
+	 *            the id of this vertex.
 	 */
 	void setId(int id) {
 		this.id = id;
@@ -271,8 +292,11 @@ public class Vertex<T> {
 
 	/**
 	 * Set a property in this vertex.
-	 * @param key the key for the property.
-	 * @param value the value forthe property.
+	 * 
+	 * @param key
+	 *            the key for the property.
+	 * @param value
+	 *            the value forthe property.
 	 */
 	public void setProperty(String key, Object value) {
 		this.property.put(key, value);
@@ -280,8 +304,11 @@ public class Vertex<T> {
 
 	/**
 	 * Retrieve a property previously set in this vertex.
-	 * @param key the key for the property.
-	 * @return the value set in this property or null if the property does not exist.
+	 * 
+	 * @param key
+	 *            the key for the property.
+	 * @return the value set in this property or null if the property does not
+	 *         exist.
 	 */
 	public Object getProperty(String key) {
 		return this.property.get(key);
@@ -289,6 +316,7 @@ public class Vertex<T> {
 
 	/**
 	 * Check if this vertex is a root vertex from its graph.
+	 * 
 	 * @return true if this vertex is root or false otherwise.
 	 */
 	public boolean isRoot() {

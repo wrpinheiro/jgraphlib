@@ -102,6 +102,14 @@ public class Arc<T> {
 	 *            the source vertex of this arc.
 	 */
 	public void setSource(Vertex<T> source) {
+		if (source != null && !source.getGraph().equals(this.graph)) {
+			throw new InvalidVertexException();
+		}
+		
+		if (this.source != null) {
+			this.source.internalRemoveOutArc(this);
+		}
+
 		this.source = source;
 		if (this.source != null)
 			this.source.addOutArc(this);
@@ -114,6 +122,14 @@ public class Arc<T> {
 	 *            the target vertex of this arc.
 	 */
 	public void setTarget(Vertex<T> target) {
+		if (target != null && !target.getGraph().equals(this.graph)) {
+			throw new InvalidVertexException();
+		}
+		
+		if (this.target != null) {
+			this.target.internalRemoveInArc(this);
+		}
+
 		this.target = target;
 		if (this.target != null)
 			this.target.addInArc(this);
@@ -200,5 +216,15 @@ public class Arc<T> {
 			return this.label.toString();
 
 		return super.toString();
+	}
+
+	/**
+	 * A facility method to set both source and target vertices this arc connects.
+	 * @param v1 the source vertex
+	 * @param v2 the target vertex.
+	 */
+	public void setEndings(Vertex<T> v1, Vertex<T> v2) {
+		this.setSource(v1);
+		this.setTarget(v2);
 	}
 }

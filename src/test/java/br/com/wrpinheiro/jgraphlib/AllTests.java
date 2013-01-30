@@ -17,6 +17,7 @@ package br.com.wrpinheiro.jgraphlib;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
+import br.com.wrpinheiro.jgraphlib.base.test.ArcTest;
 import br.com.wrpinheiro.jgraphlib.base.test.GraphTest;
 import br.com.wrpinheiro.jgraphlib.hittingset.test.ArrayFamilySetTest;
 import br.com.wrpinheiro.jgraphlib.hittingset.test.MinimalHittingSetTest;
@@ -26,6 +27,7 @@ import br.com.wrpinheiro.jgraphlib.search.test.BreadthFirstSearchTest;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         GraphTest.class,
+        ArcTest.class,
         SetMaintainerTest.class,
         ArrayFamilySetTest.class,
         MinimalHittingSetTest.class,

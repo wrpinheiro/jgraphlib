@@ -117,41 +117,39 @@ public class GraphTest {
 
 	@Test
 	public void testAdjacency() {
-		Graph<Integer> g = new Graph<Integer>();
+		Graph<Integer> g1 = new Graph<Integer>();
+		Graph<Integer> g2 = new Graph<Integer>();
 
-		Vertex<Integer> v0 = new Vertex<Integer>(g);
-		Vertex<Integer> v1 = new Vertex<Integer>(g);
-		Vertex<Integer> v2 = new Vertex<Integer>(g);
+		Vertex<Integer> v0 = new Vertex<Integer>(g1);
+		Vertex<Integer> v1 = new Vertex<Integer>(g1);
+		Vertex<Integer> v2 = new Vertex<Integer>(g1);
 
-		Arc<Integer> a0 = new Arc<Integer>(g, v0, v1);
-		g.addArc(a0);
+		Arc<Integer> a0 = new Arc<Integer>(g1, v0, v1);
+		g1.addArc(a0);
 
-		Arc<Integer> a1 = new Arc<Integer>(g, v2, v2);
-		g.addArc(a1);
+		Arc<Integer> a1 = new Arc<Integer>(g1, v2, v2);
+		g1.addArc(a1);
 
-		Arc<Integer> a2 = new Arc<Integer>(g, v1, v2);
-		g.addArc(a2);
+		Arc<Integer> a2 = new Arc<Integer>(g1, v1, v2);
+		g1.addArc(a2);
 
-		Arc<Integer> a3 = new Arc<Integer>(g, v2, v1);
-		g.addArc(a3);
+		Arc<Integer> a3 = new Arc<Integer>(g1, v2, v1);
+		g1.addArc(a3);
 
-		assertFalse(g.isAdjacent(v0, v0));
-		assertTrue(g.isAdjacent(v0, v1));
-		assertFalse(g.isAdjacent(v0, v2));
-		assertFalse(g.isAdjacent(v1, v0));
-		assertFalse(g.isAdjacent(v1, v1));
-		assertTrue(g.isAdjacent(v1, v2));
-		assertFalse(g.isAdjacent(v2, v0));
-		assertTrue(g.isAdjacent(v2, v1));
-		assertTrue(g.isAdjacent(v2, v2));
-	}
-
-	@Test
-	public void testArcEquals() {
-		Graph<Integer> g = new Graph<Integer>();
-		Arc<Integer> arc = new Arc<Integer>(g);
-
-		assertEquals(arc, arc);
+		assertFalse(g1.isAdjacent(v0, v0));
+		assertTrue(g1.isAdjacent(v0, v1));
+		assertFalse(g1.isAdjacent(v0, v2));
+		assertFalse(g1.isAdjacent(v1, v0));
+		assertFalse(g1.isAdjacent(v1, v1));
+		assertTrue(g1.isAdjacent(v1, v2));
+		assertFalse(g1.isAdjacent(v2, v0));
+		assertTrue(g1.isAdjacent(v2, v1));
+		assertTrue(g1.isAdjacent(v2, v2));
+		
+		Vertex<Integer> vg2 = new Vertex<Integer>(g2);
+		assertFalse(g1.isAdjacent(v0, vg2));
+		assertFalse(g2.isAdjacent(v0, vg2));
+		assertFalse(g2.isAdjacent(vg2, vg2));
 	}
 	
 	@Test
