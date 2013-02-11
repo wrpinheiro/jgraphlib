@@ -17,12 +17,12 @@ package br.com.wrpinheiro.jgraphlib;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
-import br.com.wrpinheiro.jgraphlib.base.test.ArcTest;
-import br.com.wrpinheiro.jgraphlib.base.test.GraphTest;
-import br.com.wrpinheiro.jgraphlib.hittingset.test.ArrayFamilySetTest;
-import br.com.wrpinheiro.jgraphlib.hittingset.test.MinimalHittingSetTest;
-import br.com.wrpinheiro.jgraphlib.hittingset.test.SetMaintainerTest;
-import br.com.wrpinheiro.jgraphlib.search.test.BreadthFirstSearchTest;
+import br.com.wrpinheiro.jgraphlib.base.ArcTest;
+import br.com.wrpinheiro.jgraphlib.base.GraphTest;
+import br.com.wrpinheiro.jgraphlib.hittingset.ArrayFamilySetTest;
+import br.com.wrpinheiro.jgraphlib.hittingset.MinimalHittingSetTest;
+import br.com.wrpinheiro.jgraphlib.hittingset.SetMaintainerTest;
+import br.com.wrpinheiro.jgraphlib.search.BreadthFirstSearchTest;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({

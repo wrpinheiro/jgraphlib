@@ -1,4 +1,4 @@
-package br.com.wrpinheiro.jgraphlib.base.test;
+package br.com.wrpinheiro.jgraphlib.base;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotSame;

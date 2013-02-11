@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.com.wrpinheiro.jgraphlib.search.test;
+package br.com.wrpinheiro.jgraphlib.search;
 
 import static org.junit.Assert.assertEquals;
 
