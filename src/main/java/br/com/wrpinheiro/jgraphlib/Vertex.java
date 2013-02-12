@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import br.com.wrpinheiro.jgraphlib.set.SetMaintainer;
+import br.com.wrpinheiro.jgraphlib.familyset.SetMaintainer;
 
 /**
  * Vertex definition.

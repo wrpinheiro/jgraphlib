@@ -13,11 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.com.wrpinheiro.jgraphlib.hittingset;
+package br.com.wrpinheiro.jgraphlib.familyset;
 
 import java.util.Set;
 
-import br.com.wrpinheiro.jgraphlib.set.SetMaintainer;
 
 
 
@@ -28,12 +27,12 @@ import br.com.wrpinheiro.jgraphlib.set.SetMaintainer;
  */
 public interface FamilySet<T> {
 	/**
-	 * Add a new set to this familySet.
+	 * Add a new set to this familySet. The values are converted to a SetMaintainer.
 	 * 
 	 * @param set
 	 *            a new set to be added.
 	 */
-	public abstract void add(SetMaintainer<T> set);
+	public abstract void add(Set<T> set);
 
 	/**
 	 * Return the list of sets maintained by this FamilySet.

@@ -13,14 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.com.wrpinheiro.jgraphlib.hittingset;
+package br.com.wrpinheiro.jgraphlib.familyset;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-
-import br.com.wrpinheiro.jgraphlib.set.SetMaintainer;
 
 public class ArrayFamilySet<T> implements FamilySet<T> {
 	/**
@@ -46,40 +44,43 @@ public class ArrayFamilySet<T> implements FamilySet<T> {
 	 * @param sets
 	 *            a set of sets.
 	 */
-	public ArrayFamilySet(SetMaintainer<T>... sets) {
+	public ArrayFamilySet(Set<T>... sets) {
 		this();
-		
+
 		if (sets != null) {
-			for (SetMaintainer<T> sm : sets) {
+			for (Set<T> sm : sets) {
 				this.add(sm);
 			}
 		}
 	}
 
 	/**
-	 * Add a new set to this familySet.
+	 * Add a new set to this family set.
 	 * 
 	 * @param set
 	 *            a new set to be added.
 	 */
 	@Override
-	public void add(SetMaintainer<T> set) {
-		if (this.contains(set))
+	public void add(Set<T> set) {
+		SetMaintainer<T> s = new SetMaintainer<T>(set);
+
+		if (this.contains(s))
 			return;
 
-		this.familySet.add(set);
+		this.familySet.add(s);
 	}
 
 	/**
-	 * Return the list of sets maintained by this FamilySet. The family set
-	 * will never be null so, we don't need to check that in this method.
+	 * Return the list of sets maintained by this FamilySet. The family set will
+	 * never be null so, we don't need to check that in this method.
 	 * 
 	 * @return array of sets.
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public SetMaintainer<T>[] getFamilySet() {
-		SetMaintainer<T>[] newFamilySet = (SetMaintainer<T>[]) new SetMaintainer<?>[this.size()];
+		SetMaintainer<T>[] newFamilySet = (SetMaintainer<T>[]) new SetMaintainer<?>[this
+				.size()];
 		for (int i = 0; i < this.size(); i++) {
 			SetMaintainer<T> set = this.familySet.get(i);
 			if (set != null) {
@@ -101,7 +102,7 @@ public class ArrayFamilySet<T> implements FamilySet<T> {
 	@Override
 	public SetMaintainer<T> findEmptyIntersection(SetMaintainer<T> otherSet) {
 		for (int i = 0; i < this.size(); i++) {
-			if (this.familySet.get(i).intersectionIsEmpty(otherSet))
+			if (this.familySet.get(i).isEmptyIntersection(otherSet))
 				return this.familySet.get(i).clone();
 		}
 		return new SetMaintainer<T>();
@@ -160,7 +161,7 @@ public class ArrayFamilySet<T> implements FamilySet<T> {
 		for (SetMaintainer<T> s : sm) {
 			T[] temp = null;
 			if (s != null) {
-			    temp = (T[]) s.toArray(new Integer[0]);
+				temp = (T[]) s.toArray(new Integer[0]);
 			}
 			newSet.add(temp);
 		}
@@ -170,7 +171,8 @@ public class ArrayFamilySet<T> implements FamilySet<T> {
 
 	/**
 	 * (non-Javadoc)
-	 * @see br.com.wrpinheiro.jgraphlib.hittingset.FamilySet#getEqual(br.com.wrpinheiro.jgraphlib.set.SetMaintainer)
+	 * 
+	 * @see br.com.wrpinheiro.jgraphlib.familyset.FamilySet#getEqual(br.com.wrpinheiro.jgraphlib.familyset.SetMaintainer)
 	 */
 	@Override
 	public SetMaintainer<T> getEqual(final SetMaintainer<T> otherSet) {
@@ -181,47 +183,47 @@ public class ArrayFamilySet<T> implements FamilySet<T> {
 		return null;
 	}
 
-  /**
-   * (non-Javadoc).
-   * 
-   * @see java.lang.Object#toString()
-   */
-  @Override
-  public String toString() {
-    SetMaintainer<T>[] sets = getFamilySet();
+	/**
+	 * (non-Javadoc).
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		SetMaintainer<T>[] sets = getFamilySet();
 
-    StringBuilder sb = new StringBuilder();
-    sb.append('{');
-    for (SetMaintainer<T> s : sets) {
-      sb.append(s).append(' ');
-    }
+		StringBuilder sb = new StringBuilder();
+		sb.append('{');
+		for (SetMaintainer<T> s : sets) {
+			sb.append(s).append(' ');
+		}
 
-    sb.append('}');
+		sb.append('}');
 
-    return sb.toString();
-  }
+		return sb.toString();
+	}
 
-  /**
-   * (non-Javadoc).
-   * 
-   * @see java.lang.Object#equals(java.lang.Object)
-   */
-  @Override
-  public boolean equals(Object obj) {
-    if (!(obj instanceof ArrayFamilySet<?>))
-      return false;
+	/**
+	 * (non-Javadoc).
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof ArrayFamilySet<?>))
+			return false;
 
-    ArrayFamilySet<?> other = (ArrayFamilySet<?>) obj;
-    if (other.size() != this.size())
-      return false;
+		ArrayFamilySet<?> other = (ArrayFamilySet<?>) obj;
+		if (other.size() != this.size())
+			return false;
 
-    SetMaintainer<?>[] s1 = other.getFamilySet();
+		SetMaintainer<?>[] s1 = other.getFamilySet();
 
-    for (SetMaintainer<?> s : s1) {
-      if (!this.contains(s))
-        return false;
-    }
+		for (SetMaintainer<?> s : s1) {
+			if (!this.contains(s))
+				return false;
+		}
 
-    return true;
-  }
+		return true;
+	}
 }

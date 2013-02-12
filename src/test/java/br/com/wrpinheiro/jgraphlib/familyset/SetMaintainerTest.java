@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.com.wrpinheiro.jgraphlib.hittingset;
+package br.com.wrpinheiro.jgraphlib.familyset;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import br.com.wrpinheiro.jgraphlib.set.SetMaintainer;
+import br.com.wrpinheiro.jgraphlib.familyset.SetMaintainer;
 
 
 /**

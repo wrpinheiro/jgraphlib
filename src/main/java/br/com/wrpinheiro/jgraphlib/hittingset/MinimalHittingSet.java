@@ -25,7 +25,9 @@ import java.util.Queue;
 import br.com.wrpinheiro.jgraphlib.Arc;
 import br.com.wrpinheiro.jgraphlib.Graph;
 import br.com.wrpinheiro.jgraphlib.Vertex;
-import br.com.wrpinheiro.jgraphlib.set.SetMaintainer;
+import br.com.wrpinheiro.jgraphlib.familyset.ArrayFamilySet;
+import br.com.wrpinheiro.jgraphlib.familyset.FamilySet;
+import br.com.wrpinheiro.jgraphlib.familyset.SetMaintainer;
 
 
 
@@ -168,7 +170,7 @@ public class MinimalHittingSet<T> {
 				s_arco.setTarget(null);
 				found = true;
 			} else if (!this.checkMarkedWithAt(nLinha)
-					&& nLinha.getLabel().intersectionIsEmpty(Hs)) { // step P3
+					&& nLinha.getLabel().isEmptyIntersection(Hs)) { // step P3
 				Vertex<T> newV = new Vertex<T>(g);
 				newV.setLabel(nLinha.getLabel().clone());
 				newV.setLabelsOnArcsFromRoot(Hs);

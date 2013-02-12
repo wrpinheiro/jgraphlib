@@ -21,10 +21,10 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import br.com.wrpinheiro.jgraphlib.hittingset.ArrayFamilySet;
-import br.com.wrpinheiro.jgraphlib.hittingset.FamilySet;
+import br.com.wrpinheiro.jgraphlib.familyset.ArrayFamilySet;
+import br.com.wrpinheiro.jgraphlib.familyset.FamilySet;
+import br.com.wrpinheiro.jgraphlib.familyset.SetMaintainer;
 import br.com.wrpinheiro.jgraphlib.hittingset.MinimalHittingSet;
-import br.com.wrpinheiro.jgraphlib.set.SetMaintainer;
 
 
 /**
@@ -36,7 +36,7 @@ public class MinimalHittingSetTest {
 		return new ArrayFamilySet<T>((SetMaintainer<T>[]) sets);
 	}
 
-	private <T> void testMHSSolution(FamilySet<T> fs, FamilySet<T> fsSolution) {
+	private <T> void testMinimalHittinghSetSolution(FamilySet<T> fs, FamilySet<T> fsSolution) {
 		MinimalHittingSet<T> mhs = new MinimalHittingSet<T>();
 		FamilySet<T> mhsSolution = mhs.solve(fs);
 
@@ -66,7 +66,7 @@ public class MinimalHittingSetTest {
 		fsSolution = getFamilySet(new SetMaintainer<Integer>(1, 2),
 				new SetMaintainer<Integer>(2, 3), new SetMaintainer<Integer>(3,
 						4), new SetMaintainer<Integer>(1, 4));
-		testMHSSolution(family, fsSolution);
+		testMinimalHittinghSetSolution(family, fsSolution);
 	}
 
 	@Test
@@ -82,7 +82,7 @@ public class MinimalHittingSetTest {
 		fsSolution = getFamilySet(new SetMaintainer<Integer>(2, 1),
 				new SetMaintainer<Integer>(2, 3), new SetMaintainer<Integer>(4,
 						1), new SetMaintainer<Integer>(4, 3));
-		testMHSSolution(family, fsSolution);
+		testMinimalHittinghSetSolution(family, fsSolution);
 	}
 
 	@Test
@@ -97,7 +97,7 @@ public class MinimalHittingSetTest {
 				new SetMaintainer<Integer>(2), new SetMaintainer<Integer>(1, 3));
 		fsSolution = getFamilySet(new SetMaintainer<Integer>(2, 1),
 				new SetMaintainer<Integer>(2, 3));
-		testMHSSolution(family, fsSolution);
+		testMinimalHittinghSetSolution(family, fsSolution);
 	}
 
 	@Test
@@ -111,7 +111,7 @@ public class MinimalHittingSetTest {
 				new SetMaintainer<Integer>(2), new SetMaintainer<Integer>(3),
 				new SetMaintainer<Integer>(4));
 		fsSolution = getFamilySet(new SetMaintainer<Integer>(1, 2, 3, 4));
-		testMHSSolution(family, fsSolution);
+		testMinimalHittinghSetSolution(family, fsSolution);
 	}
 
 	@Test
@@ -136,7 +136,7 @@ public class MinimalHittingSetTest {
 				new SetMaintainer<Integer>(2, 3, 5, 7),
 				new SetMaintainer<Integer>(2, 3, 5, 8),
 				new SetMaintainer<Integer>(2, 3, 6, 8));
-		testMHSSolution(family, fsSolution);
+		testMinimalHittinghSetSolution(family, fsSolution);
 	}
 
 	@Test
@@ -151,7 +151,7 @@ public class MinimalHittingSetTest {
 				new SetMaintainer<Integer>(9));
 
 		fsSolution = getFamilySet(new SetMaintainer<Integer>(3, 5, 7, 9));
-		testMHSSolution(family, fsSolution);
+		testMinimalHittinghSetSolution(family, fsSolution);
 	}
 
 	@Test
@@ -176,7 +176,7 @@ public class MinimalHittingSetTest {
 				new SetMaintainer<Integer>(3, 7, 9, 11),
 				new SetMaintainer<Integer>(3, 5, 9, 11),
 				new SetMaintainer<Integer>(3, 5, 7, 11));
-		testMHSSolution(family, fsSolution);
+		testMinimalHittinghSetSolution(family, fsSolution);
 	}
 
 	@Test
@@ -201,7 +201,7 @@ public class MinimalHittingSetTest {
 				new SetMaintainer<Integer>(3, 5, 9, 11),
 				new SetMaintainer<Integer>(3, 7, 9, 11),
 				new SetMaintainer<Integer>(5, 7, 9, 11));
-		testMHSSolution(family, fsSolution);
+		testMinimalHittinghSetSolution(family, fsSolution);
 	}
 
 	@Test
@@ -226,7 +226,7 @@ public class MinimalHittingSetTest {
 						9), new SetMaintainer<Integer>(5, 11),
 				new SetMaintainer<Integer>(7, 9), new SetMaintainer<Integer>(7,
 						11), new SetMaintainer<Integer>(9, 11));
-		testMHSSolution(family, fsSolution);
+		testMinimalHittinghSetSolution(family, fsSolution);
 	}
 
 	@Test
@@ -250,7 +250,7 @@ public class MinimalHittingSetTest {
 						5, 9), new SetMaintainer<Integer>(5, 11),
 				new SetMaintainer<Integer>(7, 9), new SetMaintainer<Integer>(7,
 						11), new SetMaintainer<Integer>(9, 11));
-		testMHSSolution(family, fsSolution);
+		testMinimalHittinghSetSolution(family, fsSolution);
 	}
 
 	@Test
@@ -267,7 +267,7 @@ public class MinimalHittingSetTest {
 				new SetMaintainer<Character>('B', 'D'),
 				new SetMaintainer<Character>('B', 'E'),
 				new SetMaintainer<Character>('C', 'D'));
-		testMHSSolution(cfamily, cfsSolution);
+		testMinimalHittinghSetSolution(cfamily, cfsSolution);
 	}
 
 	@Test
@@ -282,7 +282,7 @@ public class MinimalHittingSetTest {
 				new SetMaintainer<Integer>(2, 1, 3),
 				new SetMaintainer<Integer>(2, 1, 5),
 				new SetMaintainer<Integer>(4, 3));
-		testMHSSolution(family, fsSolution);
+		testMinimalHittinghSetSolution(family, fsSolution);
 	}
 
 	@Test
@@ -296,7 +296,7 @@ public class MinimalHittingSetTest {
 				new SetMaintainer<Integer>(4));
 		fsSolution = getFamilySet(new SetMaintainer<Integer>(2, 4, 5),
 				new SetMaintainer<Integer>(4, 3));
-		testMHSSolution(family, fsSolution);
+		testMinimalHittinghSetSolution(family, fsSolution);
 	}
 
 	@Test
@@ -309,7 +309,7 @@ public class MinimalHittingSetTest {
 				new SetMaintainer<Integer>(2, 3));
 		fsSolution = getFamilySet(new SetMaintainer<Integer>(2),
 				new SetMaintainer<Integer>(4, 3));
-		testMHSSolution(family, fsSolution);
+		testMinimalHittinghSetSolution(family, fsSolution);
 	}
 
 	@Test
@@ -325,7 +325,7 @@ public class MinimalHittingSetTest {
 				new SetMaintainer<Integer>(2));
 		fsSolution = getFamilySet(new SetMaintainer<Integer>(1,2),
 				new SetMaintainer<Integer>(2,3));
-		testMHSSolution(family, fsSolution);
+		testMinimalHittinghSetSolution(family, fsSolution);
 	}
 	
 	@Test
@@ -342,6 +342,6 @@ public class MinimalHittingSetTest {
 		FamilySet<Character> cfsSolution = getFamilySet(
 				new SetMaintainer<Character>('a', 'b'),
 				new SetMaintainer<Character>('b', 'c'));
-		testMHSSolution(cfamily, cfsSolution);
+		testMinimalHittinghSetSolution(cfamily, cfsSolution);
 	}
 }

@@ -13,10 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.com.wrpinheiro.jgraphlib.set;
+package br.com.wrpinheiro.jgraphlib.familyset;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 /**
  * A set implementation with support for intersection and strict containment
@@ -31,14 +32,32 @@ public class SetMaintainer<T> extends HashSet<T> {
 	private static final long serialVersionUID = 6209675331259759443L;
 
 	/**
-	 * Creates an instance of SetMaintainer initizing it with the elements in
-	 * the array values.
+	 * Creates an instance of SetMaintainer and initializes it with the elements
+	 * in the values.
 	 * 
-	 * @param value a list of values. It can be a zero size.
+	 * @param value
+	 *            a list of values. It can be a zero size.
 	 */
-	public SetMaintainer(T ... values) {
-		for (int i = 0; i < values.length; i++) {
-			this.add(values[i]);
+	public SetMaintainer(T... values) {
+		for (T value : values) {
+			this.add(value);
+		}
+	}
+
+	/**
+	 * Creates an instance of SetMaintainer and initializes it with the elements
+	 * in the values.
+	 * 
+	 * @param value
+	 *            a list of values. It can be a zero size.
+	 */
+	public SetMaintainer(Set<T> values) {
+		if (values == null)
+			this.add(null);
+		else {
+			for (T value : values) {
+				this.add(value);
+			}
 		}
 	}
 
@@ -86,7 +105,7 @@ public class SetMaintainer<T> extends HashSet<T> {
 	 *            another set.
 	 * @return TRUE if the intersection is empty or FALSE otherwise.
 	 */
-	public boolean intersectionIsEmpty(SetMaintainer<T> otherSet) {
+	public boolean isEmptyIntersection(SetMaintainer<T> otherSet) {
 		return this.intersection(otherSet).size() == 0;
 	}
 
@@ -123,7 +142,7 @@ public class SetMaintainer<T> extends HashSet<T> {
 			return false;
 
 		for (Iterator<T> it = this.iterator(); it.hasNext();) {
-		  T o = it.next();
+			T o = it.next();
 			if (!other.contains(o)) {
 				return false;
 			}

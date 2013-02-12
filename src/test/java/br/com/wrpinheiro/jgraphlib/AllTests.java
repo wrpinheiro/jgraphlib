@@ -19,9 +19,9 @@ import org.junit.runners.Suite;
 
 import br.com.wrpinheiro.jgraphlib.base.ArcTest;
 import br.com.wrpinheiro.jgraphlib.base.GraphTest;
-import br.com.wrpinheiro.jgraphlib.hittingset.ArrayFamilySetTest;
+import br.com.wrpinheiro.jgraphlib.familyset.ArrayFamilySetTest;
+import br.com.wrpinheiro.jgraphlib.familyset.SetMaintainerTest;
 import br.com.wrpinheiro.jgraphlib.hittingset.MinimalHittingSetTest;
-import br.com.wrpinheiro.jgraphlib.hittingset.SetMaintainerTest;
 import br.com.wrpinheiro.jgraphlib.search.BreadthFirstSearchTest;
 
 @RunWith(Suite.class)
