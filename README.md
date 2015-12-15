@@ -1,26 +1,19 @@
-<h1>GraphLib</h1>
+# GraphLib
 
 Welcome to jGraphLib!!
 
-jGraphLib is a small library to work with Direct Graphs. It provides
-a representation for Graphs, Nodes, Arcs and some methods to transverse the
-Graph. Between the funny things you can do with this library there is one
-algorithm that is really cool: The Minimum Hitting Set, that jGraphLib also
-provides an implementation.
+jGraphLib is a small library to work with Directed Graphs. It provides a representation for Graphs, Nodes, Arcs and some methods to transverse the Graph. Between the funny things you can do with this library there is one algorithm that is really cool: The Minimum Hitting Set, that jGraphLib also provides an implementation.
 
-TODO: write a getting started page.
+## Compilation
 
-<h1>Compilation</h1>
+Just run the following command
 
-Just go to the root directory of the project and run:
+```
+mvn package
+```
 
-<blockquote>
-  mvn package
-</blockquote>
+This project depends only on JUnit.
 
-This project only depends on JUnit.
-
-<h1>Legal</h1>
+## Legal
 
 Please read the file NOTICE included in the root directory of this project.
-
